@@ -3,8 +3,7 @@
 FROM lsucrc/crcbase
 RUN  yum install -y python-pip python-devel sqlite3
 RUN  pip install jupyter
-#USER crcuser
-#download the delft3d package
+
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/ && \
     echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
@@ -13,8 +12,7 @@ RUN mkdir -p -m 700 /root/.jupyter/ && \
 VOLUME /notebooks
 WORKDIR /notebooks
 
-# Add Tini. Tini operates as a process subreaper for jupyter. This prevents
-# kernel crashes.
+# Add Tini. Tini operates as a process subreaper for jupyter to prevent crashes.
 ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
