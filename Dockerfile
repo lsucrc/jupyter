@@ -11,7 +11,7 @@ RUN mkdir -p -m 700 /root/.jupyter/custom && \
     echo "define(['base/js/namespace'], function(Jupyter){ Jupyter._target = '_self'; });" >> /root/.jupyter/custom/custom.js && \
     echo "#ipython_notebook img{display:block; background: url(logo.png) no-repeat; background-size: contain; width: 233px; height: 33px; padding-left: 233px; -moz-box-sizing: border-box; box-sizing: border-box; }" >> /root/.jupyter/custom/custom.css 
 
-ADD https://github.com/lsucrc/notebook/blob/master/logo.png /root/.jupyter/custom/logo.png
+ADD https://raw.githubusercontent.com/lsucrc/notebook/master/logo.png /root/.jupyter/custom/logo.png
 #    echo "div#site{ height: 100%; }" >> /root/.jupyter/custom/custom.css
 
 
