@@ -8,7 +8,7 @@ RUN  pip install jupyter
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/ && \
     echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.NotebookApp.tornado_settings = { 'headers': { 'Content-Security-Policy': \"frame-ancestors '127.0.0.1:8000' \" } }" >> /root/.jupyter/jupyter_notebook_config.py
+    echo "c.NotebookApp.tornado_settings = { 'headers': { 'Content-Security-Policy': \"frame-ancestors * \" } }" >> /root/.jupyter/jupyter_notebook_config.py
 
 VOLUME /notebooks
 WORKDIR /notebooks
