@@ -1,4 +1,6 @@
-# Jupyter Notebook (based on CentOS 7)
+# Jupyter Notebook (CentOS 7)
+
+For SSL-enabled version, please visit lsucrc/notebookssl.
 
 This is a containerized distribution of Jupyter Notebook by Louisiana State University Coastal Resilience Collaboratory (https://crc.cct.lsu.edu/). This image is to enable an embedded web page with iframe. More about Jupyter project itself can be found at [Jupyter Official Site](http://jupyter.org/).
 
