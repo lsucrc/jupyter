@@ -1,8 +1,8 @@
 #Version 1.1
 #add the base image
 FROM lsucrc/crcbase
-RUN  yum install -y python-pip python-devel sqlite3
-RUN  pip install jupyter
+RUN  yum install -y python-pip python-devel sqlite3 libpng-devel freetype-devel
+RUN  pip install jupyter matplotlib
 
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/custom && \
@@ -21,8 +21,8 @@ WORKDIR /notebooks
 # Add Tini. Tini operates as a process subreaper for jupyter to prevent crashes.
 ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-#RUN chmod +x /usr/bin/tini
-#ENTRYPOINT ["/usr/bin/tini", "--"]
+RUN chmod +x /usr/bin/tini
+ENTRYPOINT ["/usr/bin/tini", "--"]
 
-#EXPOSE 8888
-#CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
