@@ -2,6 +2,7 @@
 #add the base image
 FROM lsucrc/crcbase
 RUN  yum install -y python-pip python-devel sqlite3 libpng-devel freetype-devel netcdf-devel
+RUN  pip install ipython==5.4.0
 RUN  pip install jupyter scipy matplotlib netCDF4
 
 # Add a notebook profile.
