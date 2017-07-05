@@ -8,6 +8,7 @@ RUN  pip install scipy jupyter matplotlib netCDF4
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/custom && \
     echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
+    echo "c.NotebookApp.password = u'sha1:e6df9ba93bbb:01e2f7ad57bc7dc604037ff41922006dc28b7b14'" >> /root/.jupyter/jupyter_notebook_config.py && \
     echo "c.NotebookApp.tornado_settings = { 'headers': { 'Content-Security-Policy': \"frame-ancestors * \" } }" >> /root/.jupyter/jupyter_notebook_config.py && \
     echo "define(['base/js/namespace'], function(Jupyter){ Jupyter._target = '_self'; });" >> /root/.jupyter/custom/custom.js
 #    echo "#ipython_notebook img{display:block; background: url(logo.png) no-repeat; background-size: contain; width: 233px; height: 33px; padding-left: 233px; -moz-box-sizing: border-box; box-sizing: border-box; }" >> /root/.jupyter/custom/custom.css 
