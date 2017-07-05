@@ -1,9 +1,9 @@
 #Version 1.1
 #add the base image
 FROM lsucrc/crcbase
-RUN  yum install -y python-pip python-devel sqlite3 libpng-devel freetype-devel netcdf-devel
+RUN  yum install -y python-pip python-devel scipy sqlite3 libpng-devel freetype-devel netcdf-devel
 RUN  pip install ipython==5.4.0
-RUN  pip install jupyter scipy matplotlib netCDF4
+RUN  pip install jupyter matplotlib netCDF4
 
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/custom && \
@@ -14,7 +14,6 @@ RUN mkdir -p -m 700 /root/.jupyter/custom && \
 
 #ADD https://raw.githubusercontent.com/lsucrc/notebook/master/logo.png /root/.jupyter/custom/logo.png
 #    echo "div#site{ height: 100%; }" >> /root/.jupyter/custom/custom.css
-
 
 VOLUME /notebooks
 WORKDIR /notebooks
